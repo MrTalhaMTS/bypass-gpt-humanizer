@@ -46,11 +46,13 @@ Create a key in your account settings under API keys. A key is shown once; revok
 ## What this plugin runs, sends and stores
 
 - **Sends:** the text you ask to rewrite, over HTTPS, to `https://bypassgpt.si` (the connector, and `humanize.py` if
-  Claude runs it). If you set an API key, it is sent as an `Authorization: Bearer` header to the same host. Nothing else
-  is sent. The plugin does not read your conversation, files you did not name, or Claude's memory.
+  Claude runs it). If you set the optional API key, the connector sends it as an `Authorization: Bearer` header to the
+  same host. Nothing else is sent. The plugin does not read your conversation, files you did not name, or Claude's
+  memory.
 - **Runs:** only the connector and, when needed, `skills/bypass-gpt-humanizer/scripts/humanize.py`. The script reads
-  text from a file or standard input, calls `https://bypassgpt.si/api/v1/humanize`, and prints the result. It reads the
-  environment variable `BYPASSGPT_API_KEY` if you set it. It writes no files and installs nothing.
+  text from a file or standard input, calls `https://bypassgpt.si/api/v1/humanize` on the free tier, and prints the
+  result. It uses no API key and reads no environment variables or credentials. It writes no files and installs
+  nothing.
 - **Processing:** Bypass GPT sends the text to the AI model provider it uses to produce the rewrite.
 - **Stored:** free-tier text is not saved to a history and is not put in analytics. Requests made with an account key
   follow that account's history setting, like the Bypass GPT website. See the privacy policy for details and retention:
