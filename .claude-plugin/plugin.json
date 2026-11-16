@@ -1,7 +1,7 @@
 {
   "name": "bypass-gpt-humanizer",
   "displayName": "Bypass GPT Humanizer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Rewrite AI-assisted or stiff text so it reads naturally while keeping the meaning, names and numbers. Adds a connector, a skill and a /humanize command. Free tier included.",
   "author": { "name": "Bypass GPT", "url": "https://bypassgpt.si" },
   "homepage": "https://bypassgpt.si/connect",
