@@ -12,7 +12,7 @@ citations, and follow the rules about disclosing AI assistance that apply to you
 | Part | What it does |
 | --- | --- |
 | Connector (`.mcp.json`) | Connects Claude to the remote Bypass GPT server at `https://bypassgpt.si/mcp`. It adds two tools: `humanize_text` and `get_humanizer_usage`. |
-| Skill (`skills/bypass-gpt-humanizer`) | Teaches Claude when to humanize text, splits long drafts at paragraph boundaries, and checks that names and numbers are unchanged. Includes `scripts/humanize.py`, a Python 3 script (standard library only) used when the connector is unavailable. |
+| Skill (`skills/bypass-gpt-humanizer`) | Teaches Claude when to humanize text, splits long drafts at paragraph boundaries, and checks that names and numbers are unchanged. |
 | Command (`/bypass-gpt-humanizer:humanize`) | Humanize pasted text or a file. |
 
 ## Install
@@ -45,14 +45,11 @@ Create a key in your account settings under API keys. A key is shown once; revok
 
 ## What this plugin runs, sends and stores
 
-- **Sends:** the text you ask to rewrite, over HTTPS, to `https://bypassgpt.si` (the connector, and `humanize.py` if
-  Claude runs it). If you set the optional API key, the connector sends it as an `Authorization: Bearer` header to the
-  same host. Nothing else is sent. The plugin does not read your conversation, files you did not name, or Claude's
-  memory.
-- **Runs:** only the connector and, when needed, `skills/bypass-gpt-humanizer/scripts/humanize.py`. The script reads
-  text from a file or standard input, calls `https://bypassgpt.si/api/v1/humanize` on the free tier, and prints the
-  result. It uses no API key and reads no environment variables or credentials. It writes no files and installs
-  nothing.
+- **Sends:** the text you ask to rewrite, over HTTPS, to `https://bypassgpt.si` through the connector. If you set the
+  optional API key, the connector sends it as an `Authorization: Bearer` header to the same host. Nothing else is sent.
+  The plugin does not read your conversation, files you did not name, or Claude's memory.
+- **Runs:** only the connector. The plugin contains no scripts or executable code, only Markdown instructions, a
+  manifest and an icon. It writes no files and installs nothing.
 - **Processing:** Bypass GPT sends the text to the AI model provider it uses to produce the rewrite.
 - **Stored:** free-tier text is not saved to a history and is not put in analytics. Requests made with an account key
   follow that account's history setting, like the Bypass GPT website. See the privacy policy for details and retention:

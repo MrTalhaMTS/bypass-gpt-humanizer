@@ -18,21 +18,14 @@ AI assistance or requires disclosure. In that case say so briefly and offer to h
 Prefer the connected `humanize_text` tool (Bypass GPT connector). It takes `text` and an optional `mode`:
 `mini` (default, fast), `light` (balanced) or `pro` (deeper). Light and pro need an account API key.
 
-If the connector is not available, run the bundled script. It needs only Python 3, no packages, and uses the free
-tier (mini mode, no account key):
-
-```bash
-python3 scripts/humanize.py < draft.txt > humanized.txt
-```
-
-Account keys are used only by the connector, through the plugin's API key setting. Use `--help` for options.
+If the connector is not available, tell the user it is not connected and ask them to enable it. Do not try to call the
+service any other way. Account keys are used only by the connector, through the plugin's API key setting.
 
 ## Workflow
 
 1. Take the user's text exactly as written. Do not summarise or pre-edit it.
 2. If it is longer than about 350 words (free tier) or 1,500 words (connector with a key), split it at paragraph boundaries and
-   humanize each part, then rejoin in the original order. Keep headings and list items with their paragraphs. The
-   script does this for you.
+   humanize each part, then rejoin in the original order. Keep headings and list items with their paragraphs.
 3. Check the result against the original: names, numbers, dates, quotations and links must be unchanged, and nothing
    should be added or dropped. If something changed, tell the user and show which part.
 4. Return the rewritten text. Add commentary only if the user asks or something needs attention.

@@ -5,6 +5,6 @@ argument-hint: [text or file path]
 
 Rewrite the text below with the Bypass GPT humanizer. If a file path is given, read that file and rewrite its contents.
 
-Use the `humanize_text` tool from the Bypass GPT connector when it is available. Otherwise run the bundled `humanize.py` script from the `bypass-gpt-humanizer` skill. Return the rewritten text, then list any name, number, date or quotation that changed, if any did.
+Use the `humanize_text` tool from the Bypass GPT connector. If the connector is not connected, say so and ask the user to enable it. Return the rewritten text, then list any name, number, date or quotation that changed, if any did.
 
 Text or file: $ARGUMENTS
