@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "bypass-gpt": {
+      "type": "http",
+      "url": "https://bypassgpt.si/mcp",
+      "headers": {
+        "Authorization": "Bearer ${user_config.api_key}"
+      }
+    }
+  }
+}

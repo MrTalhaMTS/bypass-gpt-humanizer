@@ -1,0 +1,25 @@
+{
+  "name": "bypass-gpt-humanizer",
+  "displayName": "Bypass GPT Humanizer",
+  "version": "1.0.0",
+  "description": "Rewrite AI-assisted or stiff text so it reads naturally while keeping the meaning, names and numbers. Adds a connector, a skill and a /humanize command. Free tier included.",
+  "author": { "name": "Bypass GPT", "url": "https://bypassgpt.si" },
+  "homepage": "https://bypassgpt.si/connect",
+  "repository": "https://github.com/MrTalhaMTS/bypass-gpt-humanizer",
+  "license": "MIT",
+  "keywords": ["writing", "editing", "rewrite", "text", "humanizer"],
+  "icon": "./icon.png",
+  "documentationUrl": "https://bypassgpt.si/connect",
+  "supportUrl": "https://bypassgpt.si/support",
+  "privacyPolicyUrl": "https://bypassgpt.si/privacy",
+  "termsOfServiceUrl": "https://bypassgpt.si/terms",
+  "userConfig": {
+    "api_key": {
+      "type": "string",
+      "title": "Bypass GPT API key (optional)",
+      "description": "Leave empty to use the free tier (short passages, shared daily allowance). Paste a key from your Bypass GPT account settings to use your own credits and plan modes.",
+      "sensitive": true,
+      "required": false
+    }
+  }
+}
